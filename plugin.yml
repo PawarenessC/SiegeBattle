@@ -1,0 +1,13 @@
+name: SiegeBattle
+main: PawarenessC\sb\Main
+version: 0.1
+api: [4.0.0,3.0.0,3.5.0]
+author: PawarenessC
+load: POSTWORLD
+commands:
+ test:
+  description: "test"
+  usage: "/test"
+ test1:
+  description: "test1"
+  usage: "/test"
