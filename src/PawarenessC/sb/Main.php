@@ -99,9 +99,55 @@ class Main extends pluginBase implements Listener{
 		}
 	}
 													
-	public function EntityDamageEvent(EntityDamageEvent $event){
-	}
-}
+	public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
+		$name = $sender->getName();
+		switch($label){
+			case "siege":
+				if(!isset($args[0])){
+					$this->MainUI($sender);
+					return true;
+				}else{
+					switch($args[0]){
+						case "help":
+							if($sender->isOp()){
+								$sender->sendMessage("/siege < help|join|quit|pos1|pos2|start>");
+								return true;
+							}else{
+								$sender->sendMessage("/siege < help|join|quit>");
+								return true;
+							}
+						break;
+							
+						case "join":
+							$this->Join($sender);
+						return true;
+						break;
+						
+						case "quit":
+							$this->Quit($sender);
+						return true;
+						break;
+						
+						case "pos1":
+						if($sender->isOp()){
+							$this->setPos($sender, 1);}
+						return true;
+						break;
+							
+						case "pos2":
+							if($sender->isOp()){
+							$this->setPos($sender, 2);}
+						return true;
+						break;
+						
+						case "start":
+							if($sender->isOp()){
+								if(!isset($args[0])){
+									$sender->sendMessage("/siege start");
+								}
+							}
+						break
+	
 		
 	
 	
